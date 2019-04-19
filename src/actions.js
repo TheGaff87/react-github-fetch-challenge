@@ -19,7 +19,7 @@ export const fetchRepos = () => dispatch => {
     dispatch(fetchReposRequest());
     fetch('https://api.github.com/users/dhh/repos').then(res => {
         if (!res.ok) {
-            return Promise.reject(message.textStatus)
+            return Promise.reject(res.statusText);
         }
         return res.json();
     }).then(repos => {
