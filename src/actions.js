@@ -23,8 +23,8 @@ export const fetchRepos = () => dispatch => {
         }
         return res.json();
     }).then(repos => {
-        dispatch(fetchReposSuccess());
-    }).catch(err => {
-        dispatch(fetchReposError());
+        dispatch(fetchReposSuccess(repos));
+    }).catch(error => {
+        dispatch(fetchReposError(error));
     })
 }
